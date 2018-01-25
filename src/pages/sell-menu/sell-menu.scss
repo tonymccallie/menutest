@@ -1,3 +1,10 @@
 page-sell-menu {
-
+	ion-menu {
+		.toolbar-background-ios {
+			background: blue;
+		}
+		.toolbar-title-ios {
+			color: white;
+		}
+	}
 }

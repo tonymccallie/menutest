@@ -12,7 +12,9 @@ import { MyApp } from './app.component';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+		mode: 'ios'
+	})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
