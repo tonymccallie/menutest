@@ -29,12 +29,16 @@ export class SellMenuPage {
 		if(page.component == 'StartPage') {
 			this.app.getRootNavs()[0].setRoot(page.component);
 		} else {
-			if (this.nav.getActiveChildNavs()[0] && page.index != undefined) {
-				this.nav.getActiveChildNavs()[0].select(page.index);
+			if(page.notab != undefined && page.notab) {
+				this.nav.push(page.component);
 			} else {
-				// Tabs are not active, so reset the root page 
-				// In this case: moving to or from SpecialPage
-				this.nav.getActiveChildNavs()[0].getSelected().push(page.component);
+				if (this.nav.getActiveChildNavs()[0] && page.index != undefined) {
+					this.nav.getActiveChildNavs()[0].select(page.index);
+				} else {
+					// Tabs are not active, so reset the root page 
+					// In this case: moving to or from SpecialPage
+					this.nav.getActiveChildNavs()[0].getSelected().push(page.component);
+				}
 			}
 		}
 	}
