@@ -30,11 +30,15 @@ export class BuyMenuPage {
 			this.app.getRootNavs()[0].setRoot(page.component);
 		} else {
 			if(page.notab != undefined && page.notab) {
+				console.log(['no tabs',this.nav]);
 				this.nav.push(page.component);
 			} else {
+				console.log(['check',this.nav.getActiveChildNavs()[0]]);
 				if (this.nav.getActiveChildNavs()[0] && page.index != undefined) {
+					console.log(['load tab',this.nav.getActiveChildNavs()[0]]);
 					this.nav.getActiveChildNavs()[0].select(page.index);
 				} else {
+					console.log(['push on tabs',this.nav.getActiveChildNavs()[0]]);
 					// Tabs are not active, so reset the root page 
 					// In this case: moving to or from SpecialPage
 					this.nav.getActiveChildNavs()[0].getSelected().push(page.component);
